@@ -16,11 +16,11 @@ node {
                         sh "git config user.name wihong"
                         //sh "git switch master"
                         sh "cat deployment.yaml"
-                        sh "sed -i 's+pan0922/flask-study.*+pan0922/flask-study:${DOCKERTAG}+g' deployment.yaml"
+                        sh "sed -i 's+pan0922/flask-study.*+pan0922/flask-study:${env.BUILD_NUMBER}+g' deployment.yaml"
                         sh "cat deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
-                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/kubernetesmanifest.git HEAD:main"
+                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/kubernetesmanifest.git HEAD:master"
       }
     }
   }

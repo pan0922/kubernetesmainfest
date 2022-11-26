@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: jenkins
-  name: jenkins
+    app: cicd
+  name: cicd
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: jenkins
+      app: cicd
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: jenkins
+        app: cicd
     spec:
       containers:
       - image: pan0922/flask-study:latest
-        name: jenkins
+        name: cicd
         resources: {}
 status: {}
 ---
@@ -35,4 +35,4 @@ spec:
   - port: 80
     targetPort: 5000
   selector:
-    app: jenkins
+    app: cicd
